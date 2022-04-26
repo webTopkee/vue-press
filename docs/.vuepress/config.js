@@ -11,7 +11,7 @@ module.exports = {
     serviceWorker: true,
     themeConfig: {    
         logo: '/git.png',
-        lastUpdated: 'lastUpdate', // string | boolean
+        lastUpdated: '最后更新', // string | boolean
         nav: [
             { text: '首页', link: '/' },
             // {
