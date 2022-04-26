@@ -1,0 +1,72 @@
+## 本地安装
+
+```
+npm install <package-name>
+```
+
+## 全局安装
+
+```
+npm install -g <package-name>
+```
+
+## 安装所有依赖
+
+```
+npm install
+```
+
+## 安装单个软件包
+
+```
+npm install <package-name>
+```
+
+通常会在此命令中看到更多标志:
+
+- `--save` 安装并添加条目到 package.json 文件的 dependencies。
+- `--save-dev` 安装并添加条目到 package.json 文件的
+  devDependencies。
+
+区别主要是，devDependencies 通常是开发的工具（例如测试的库），而 dependencies 则是与生产环境中的应用程序相关。
+
+## 更新软件包
+
+```
+npm update
+```
+
+## 更新单个软件包
+
+```
+npm update <package-name>
+```
+
+## 软件包旧版本
+
+```
+npm install <package>@<version>
+npm install cowsay@1.2.0
+```
+
+## 卸载软件包
+
+```
+npm uninstall <package-name>
+```
+
+如果使用 -S 或 --save 标志，则此操作还会移除 package.json 文件中的引用。
+
+如果程序包是开发依赖项（列出在 package.json 文件的 devDependencies 中），则必须使用 -D 或 --save-dev 标志从文件中移除：
+
+```
+npm uninstall -S <package-name>
+npm uninstall -D <package-name>
+npm uninstall -g <package-name>
+```
+
+## 全局软件包
+
+```
+npm list -g --depth 0
+```
