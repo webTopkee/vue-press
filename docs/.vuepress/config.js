@@ -90,14 +90,61 @@ module.exports = {
     sidebar: {
       "/pages/guide/": [
         {
-          title: "笔记",
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 1, // 可选的, 默认值是 1
+          title: "前言",
+          collapsable: false, 
+          sidebarDepth: 1, 
           children: [
-            ["git.md", "Git"],
+            ["weber.md", "weber"],
+          ],
+        },
+        {
+          title: "前端相关",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
             ["npm.md", "Npm"],
             ["js.md", "JavaScript"],
             ["vuex.md", "Vuex 4.x"],
+          ],
+        },
+        {
+          title: "网络相关",
+          collapsable: false,
+          sidebarDepth: 1, 
+          children: [
+            ["http.md", "Http"],
+          ],
+        },
+        {
+          title: "数据库相关",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            // ["git.md", "Git"],
+          ],
+        },
+        {
+          title: "服务器相关",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            // ["git.md", "Git"],
+          ],
+        },
+        {
+          title: "项目管理",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            ["git.md", "Git"],
+          ],
+        },
+        {
+          title: "其它",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            ["parse.md", "设置本地域名解析"],
           ],
         },
       ],
