@@ -12,6 +12,8 @@ module.exports = {
   themeConfig: {
     logo: "/git.png",
     lastUpdated: "最后更新", // string | boolean
+    search: true,
+    searchMaxSuggestions: 10,
     nav: [
       { text: "首页", link: "/" },
       // {
