@@ -105,6 +105,7 @@ module.exports = {
             ["npm.md", "Npm"],
             ["js.md", "JavaScript"],
             ["vuex.md", "Vuex 4.x"],
+            ["type.md", "TypeScript"],
           ],
         },
         {
