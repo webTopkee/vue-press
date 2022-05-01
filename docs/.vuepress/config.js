@@ -106,6 +106,7 @@ module.exports = {
           children: [
             ["npm.md", "Npm"],
             ["js.md", "JavaScript"],
+            ["es.md", "ES6"],
             ["vuex.md", "Vuex 4.x"],
             ["type.md", "TypeScript"],
           ],
