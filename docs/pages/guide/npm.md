@@ -1,4 +1,24 @@
-## 本地安装
+## 初始化
+
+```
+npm init [-y]
+```
+
+`-y` 可写可不写，如果写上则会默认生成配置，否则则需要手动填写配置
+
+## 安装单个软件包
+
+```
+npm install <package-name> [安装模式](-g/-S/-D)
+```
+
+通常会在此命令中看到更多标志:
+
+- `-g` 全局安装，软件包会安装在当前计算机中，与项目无关
+- `-S --save` 软件包会安装到生产依赖中，只会出现在项目目录中（`package.json` 文件的 `dependencies`）。
+- `-D --dev` 软件包会安装到开发依赖中，软件包代码只会出现在项目目录中（`package.json` 文件的`devDependencies`)。
+
+区别主要是，devDependencies 通常是开发的工具（例如测试的库），而 dependencies 则是与生产环境中的应用程序相关。
 
 ```
 npm install <package-name>
@@ -15,20 +35,6 @@ npm install -g <package-name>
 ```
 npm install
 ```
-
-## 安装单个软件包
-
-```
-npm install <package-name>
-```
-
-通常会在此命令中看到更多标志:
-
-- `--save` 安装并添加条目到 package.json 文件的 dependencies。
-- `--save-dev` 安装并添加条目到 package.json 文件的
-  devDependencies。
-
-区别主要是，devDependencies 通常是开发的工具（例如测试的库），而 dependencies 则是与生产环境中的应用程序相关。
 
 ## 更新软件包
 
