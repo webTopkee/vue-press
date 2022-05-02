@@ -132,7 +132,7 @@ module.exports = {
           collapsable: false, 
           sidebarDepth: 1, 
           children: [
-            // ["git.md", "Git"],
+            ["php.md", "PHP"],
           ],
         },
         {
