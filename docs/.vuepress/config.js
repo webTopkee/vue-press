@@ -9,6 +9,7 @@ module.exports = {
     lineNumbers: true,
   },
   serviceWorker: true,
+  displayAllHeaders:true,
   themeConfig: {
     logo: "/git.png",
     lastUpdated: "最后更新", // string | boolean
@@ -132,7 +133,7 @@ module.exports = {
           collapsable: false, 
           sidebarDepth: 1, 
           children: [
-            ["php12222.md", "PHP"],
+            ["php.md", "PHP"],
           ],
         },
         {
