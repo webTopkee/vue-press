@@ -5,11 +5,11 @@ module.exports = {
   head: [
     ["link", { rel: "icon", href: "/git.png" }], //浏览器的标签栏的网页图标
   ],
-  markdown: {
-    lineNumbers: true,
-  },
-  serviceWorker: true,
-  displayAllHeaders:true,
+  // markdown: {
+  //   lineNumbers: true,
+  // },
+  // serviceWorker: true,
+  // displayAllHeaders:true,
   themeConfig: {
     logo: "/git.png",
     lastUpdated: "最后更新", // string | boolean
@@ -17,14 +17,18 @@ module.exports = {
     searchMaxSuggestions: 10,
     nav: [
       { text: "首页", link: "/" },
-      // {
-      //     text: '分类',
-      //     ariaLabel: '分类',
-      //     items: [
-      //         { text: '文章', link: '/pages/folder1/test1.md' },
-      //         { text: '琐碎', link: '/pages/folder2/test4.md' },
-      //     ]
-      // },
+      {
+          text: '笔记分类',
+          ariaLabel: '分类',
+          items: [
+              { text: 'Git', link: '/pages/git/' },
+              { text: 'Vuex', link: '/pages/vuex/' },
+              { text: 'JavaScript', link: '/pages/js/' },
+              { text: 'TypeScript', link: '/pages/ts/' },
+              { text: 'Http', link: '/pages/http/' },
+              { text: 'PHP', link: '/pages/php/' },
+          ]
+      },
       {
         text: "前端生态",
         items: [
@@ -92,67 +96,169 @@ module.exports = {
     ],
     sidebar: {
       "/pages/guide/": [
+        // {
+        //   title: "前言",
+        //   collapsable: false, 
+        //   sidebarDepth: 1, 
+        //   children: [
+        //     ["weber.md", "weber"],
+        //   ],
+        // },
+        // {
+        //   title: "前端相关",
+        //   collapsable: false, 
+        //   sidebarDepth: 1, 
+        //   children: [
+        //     ["npm.md", "Npm"],
+        //     ["js.md", "JavaScript"],
+        //     ["es.md", "ES6"],
+        //     ["vuex.md", "Vuex 4.x"],
+        //     ["type.md", "TypeScript"],
+        //   ],
+        // },
+        // {
+        //   title: "网络相关",
+        //   collapsable: false,
+        //   sidebarDepth: 1, 
+        //   children: [
+        //     ["http.md", "Http"],
+        //   ],
+        // },
+        // {
+        //   title: "数据库相关",
+        //   collapsable: false, 
+        //   sidebarDepth: 1, 
+        //   children: [
+        //     // ["git.md", "Git"],
+        //   ],
+        // },
+        // {
+        //   title: "服务器相关",
+        //   collapsable: false, 
+        //   sidebarDepth: 1, 
+        //   children: [
+        //     ["php.md", "PHP"],
+        //   ],
+        // },
+        // {
+        //   title: "项目管理",
+        //   collapsable: false, 
+        //   sidebarDepth: 1, 
+        //   children: [
+        //     ["git.md", "Git"],
+        //   ],
+        // },
+        // {
+        //   title: "其它",
+        //   collapsable: false, 
+        //   sidebarDepth: 1, 
+        //   children: [
+        //     ["parse.md", "设置本地域名解析"],
+        //   ],
+        // },
+      ],
+      // "/pages/vue/":[
+      //   {
+      //     title: "基础",
+      //     collapsable: true, 
+      //     sidebarDepth: 1, 
+      //     children: [
+      //       ["vue.md", "安装"],
+      //       ["vue2.md", "介绍"],
+      //     ],
+      //   },
+      //   {
+      //     title: "深入组件",
+      //     collapsable: false, 
+      //     sidebarDepth: 1, 
+      //     children: [
+      //       ["vue3.md", "vue"],
+      //     ],
+      //   },
+      // ],
+      "/pages/php/":[
         {
-          title: "前言",
+          title: "PHP基础",
           collapsable: false, 
           sidebarDepth: 1, 
           children: [
-            ["weber.md", "weber"],
-          ],
-        },
-        {
-          title: "前端相关",
-          collapsable: false, 
-          sidebarDepth: 1, 
-          children: [
-            ["npm.md", "Npm"],
-            ["js.md", "JavaScript"],
-            ["es.md", "ES6"],
-            ["vuex.md", "Vuex 4.x"],
-            ["type.md", "TypeScript"],
-          ],
-        },
-        {
-          title: "网络相关",
-          collapsable: false,
-          sidebarDepth: 1, 
-          children: [
-            ["http.md", "Http"],
-          ],
-        },
-        {
-          title: "数据库相关",
-          collapsable: false, 
-          sidebarDepth: 1, 
-          children: [
-            // ["git.md", "Git"],
-          ],
-        },
-        {
-          title: "服务器相关",
-          collapsable: false, 
-          sidebarDepth: 1, 
-          children: [
-            ["php.md", "PHP"],
-          ],
-        },
-        {
-          title: "项目管理",
-          collapsable: false, 
-          sidebarDepth: 1, 
-          children: [
-            ["git.md", "Git"],
-          ],
-        },
-        {
-          title: "其它",
-          collapsable: false, 
-          sidebarDepth: 1, 
-          children: [
-            ["parse.md", "设置本地域名解析"],
+            ["php.md", "语法特点"],
+            ["php2.md", "输出语句"],
+            ["php3.md", "超全局变量"],
+            ["php4.md", "变量"],
+            ["php5.md", "常量"],
+            ["php6.md", "标量类型"],
+            ["php7.md", "复合类型"],
+            ["php8.md", "进制转换"],
+            ["php9.md", "ASCII 方法"],
           ],
         },
       ],
+      "/pages/js/":[
+        {
+          title: "ES6基础",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            ["es.md", "变量声明"],
+            ["es2.md", "循环"],
+            ["es3.md", "作用域"],
+            ["es4.md", "箭头函数"],
+            ["es5.md", "数组遍历"],
+            ["promise.md", "Promise"],
+            ["async.md", "async"],
+          ],
+        },
+      ],
+      "/pages/vuex/":[
+        {
+          title: "vuex基础",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            ["pinia.md", "关于 Pinia"],
+            ["install.md", "安装与启用"],
+            ["store.md", "Store"],
+          ],
+        },
+      ],
+      "/pages/git/":[
+        {
+          title: "Git常规操作",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            ["git.md", "查看用户名和邮箱地址"],
+            ["git2.md", "修改用户名和邮箱地址"],
+            ["git3.md", "重置远程仓库地址"],
+            ["git4.md", "分支操作"],
+            ["git5.md", "代码回滚"],
+          ],
+        },
+      ],
+      "/pages/http/":[
+        {
+          title: "http基础",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            ["http.md", "HTTP 请求方式"],
+            ["http2.md", "HTTP 返回错误码"],
+          ],
+        },
+      ],
+      "/pages/ts/":[
+        {
+          title: "TypeScript基础",
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            ["ts.md", "基本类型"],
+            ["ts2.md", "数组"],
+            ["ts3.md", "接口"],
+          ],
+        },
+      ]
     },
   },
 };
