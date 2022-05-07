@@ -157,25 +157,6 @@ module.exports = {
         //   ],
         // },
       ],
-      // "/pages/vue/":[
-      //   {
-      //     title: "基础",
-      //     collapsable: true, 
-      //     sidebarDepth: 1, 
-      //     children: [
-      //       ["vue.md", "安装"],
-      //       ["vue2.md", "介绍"],
-      //     ],
-      //   },
-      //   {
-      //     title: "深入组件",
-      //     collapsable: false, 
-      //     sidebarDepth: 1, 
-      //     children: [
-      //       ["vue3.md", "vue"],
-      //     ],
-      //   },
-      // ],
       "/pages/php/":[
         {
           title: "PHP基础",
