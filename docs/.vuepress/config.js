@@ -167,6 +167,10 @@ module.exports = {
             ["php2.md", "输出语句"],
             ["php3.md", "超全局变量"],
             ["php4.md", "变量"],
+            ["data-type.md", "数据类型"],
+            ["variable-function.md", "变量相关功能"],
+            ["type-conversion.md", "数据类型转换"],
+
             ["php5.md", "常量"],
             ["php6.md", "标量类型"],
             ["php7.md", "复合类型"],
