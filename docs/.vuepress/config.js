@@ -170,12 +170,13 @@ module.exports = {
             ["data-type.md", "数据类型"],
             ["variable-function.md", "变量相关功能"],
             ["type-conversion.md", "数据类型转换"],
-
             ["constant.md", "常量"],
-            ["php6.md", "标量类型"],
-            ["php7.md", "复合类型"],
-            ["php8.md", "进制转换"],
-            ["php9.md", "ASCII 方法"],
+            ["operator.md", "运算符"],
+
+            // ["php6.md", "标量类型"],
+            // ["php7.md", "复合类型"],
+            // ["php8.md", "进制转换"],
+            // ["php9.md", "ASCII 方法"],
           ],
         },
       ],
