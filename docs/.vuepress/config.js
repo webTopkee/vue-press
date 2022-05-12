@@ -165,13 +165,14 @@ module.exports = {
           children: [
             ["php.md", "语法特点"],
             ["php2.md", "输出语句"],
-            ["php3.md", "超全局变量"],
+            // ["php3.md", "超全局变量"],
             ["php4.md", "变量"],
             ["data-type.md", "数据类型"],
             ["variable-function.md", "变量相关功能"],
             ["type-conversion.md", "数据类型转换"],
             ["constant.md", "常量"],
             ["operator.md", "运算符"],
+            ["process.md", "流程控制"],
 
             // ["php6.md", "标量类型"],
             // ["php7.md", "复合类型"],

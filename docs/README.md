@@ -1,17 +1,17 @@
 ---
 home: true
 heroImage: /git.png
-heroText: weber前端记录
-tagline: 种一棵树最好时间是十年前，其次是现在
+heroText: weber
+tagline: 多阅读，记笔记，勤思考
 actionText: 马上进入 →
 actionLink: /pages/guide/weber.md
 features:
-  - title: 简洁至上
-    details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-  - title: Vue驱动
-    details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-  - title: 高性能
-    details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+  - title: 阅读
+    details: 要想成就非凡，那就必须站在巨人的肩膀上前行。
+  - title: 笔记
+    details: 人的很多灵感都是转瞬即逝的，所以及时做笔记很必要。
+  - title: 思考
+    details: 不断去思考事物的本质是什么。
 ---
 
 <!--
