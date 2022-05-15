@@ -173,6 +173,7 @@ module.exports = {
             ["constant.md", "常量"],
             ["operator.md", "运算符"],
             ["process.md", "流程控制"],
+            ["array.md", "数组"],
 
             // ["php6.md", "标量类型"],
             // ["php7.md", "复合类型"],
