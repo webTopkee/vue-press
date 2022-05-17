@@ -212,16 +212,16 @@ module.exports = {
       ],
       "/pages/git/":[
         {
-          title: "Git常规操作",
+          title: "Git",
           collapsable: false, 
           sidebarDepth: 1, 
           children: [
-            ["git.md", "查看用户名和邮箱地址"],
-            ["git2.md", "修改用户名和邮箱地址"],
-            ["git3.md", "重置远程仓库地址"],
-            ["git4.md", "分支操作"],
-            ["git5.md", "代码回滚"],
-            ["git6.md", "场景运用"],
+            ["git.md", "常规操作"],
+            // ["git2.md", "修改用户名和邮箱地址"],
+            // ["git3.md", "重置远程仓库地址"],
+            // ["git4.md", "分支操作"],
+            // ["git5.md", "代码回滚"],
+            // ["git6.md", "场景运用"],
           ],
         },
       ],
