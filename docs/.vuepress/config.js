@@ -12,7 +12,7 @@ module.exports = {
   // displayAllHeaders:true,
   themeConfig: {
     logo: "/git.png",
-    lastUpdated: "最后更新", // string | boolean
+    lastUpdated: "上次更新", // string | boolean
     search: true,
     searchMaxSuggestions: 10,
     nav: [
