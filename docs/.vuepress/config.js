@@ -9,12 +9,13 @@ module.exports = {
   //   lineNumbers: true,
   // },
   // serviceWorker: true,
-  // displayAllHeaders:true,
   themeConfig: {
     logo: "/git.png",
     lastUpdated: "上次更新", // string | boolean
     search: true,
     searchMaxSuggestions: 10,
+    displayAllHeaders:false, //是否展示所有标题
+    smoothScroll: true,
     nav: [
       { text: "首页", link: "/" },
       {
@@ -161,11 +162,11 @@ module.exports = {
         {
           title: "PHP基础",
           collapsable: false, 
-          sidebarDepth: 1, 
+          sidebarDepth: 2, 
           children: [
             ["php.md", "语法特点"],
             ["php2.md", "输出语句"],
-            // ["php3.md", "超全局变量"],
+            ["php3.md", "超全局变量"],
             ["php4.md", "变量"],
             ["data-type.md", "数据类型"],
             ["variable-function.md", "变量相关功能"],
@@ -174,6 +175,7 @@ module.exports = {
             ["operator.md", "运算符"],
             ["process.md", "流程控制"],
             ["array.md", "数组"],
+            ["fn.md", "函数"],
 
             // ["php6.md", "标量类型"],
             // ["php7.md", "复合类型"],
@@ -202,14 +204,14 @@ module.exports = {
         {
           title: "vuex基础",
           collapsable: false, 
-          sidebarDepth: 1, 
+          sidebarDepth: 2, 
           children: [
             ["pinia.md", "关于 Pinia"],
             ["install.md", "安装与启用"],
             ["store.md", "Store"],
+            ["getters.md", "Getters"],
           ],
-        },
-      ],
+      }],
       "/pages/git/":[
         {
           title: "Git",
