@@ -209,7 +209,9 @@ module.exports = {
             ["pinia.md", "关于 Pinia"],
             ["install.md", "安装与启用"],
             ["store.md", "Store"],
+            ["state.md", "State"],
             ["getters.md", "Getters"],
+            ["actions.md", "Actions"],
           ],
       }],
       "/pages/git/":[

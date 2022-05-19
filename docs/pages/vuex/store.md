@@ -1,5 +1,9 @@
 ## 创建 Store
 
+Store 是通过 `defineStore` 方法来创建的，它有两种入参形式：
+
+### 形式 1 ：接收两个参数
+
 接收两个参数，第一个参数是 `Store` 的唯一 ID ，第二个参数是 Store 的选项：
 
 ```js
@@ -11,53 +15,22 @@ export const useStore = defineStore("main", {
 });
 ```
 
-## 给 Store 添加 state
+### 形式 2 ：接收一个参数
 
-`state` 就相当于 vue 中的 data 数据，提供数据存储的地方。
+接收一个参数，直接传入 Store 的选项，但是需要把唯一 ID 作为选项的一部分一起传入：
 
 ```js
 // src/stores/index.ts
 import { defineStore } from "pinia";
 
-export const useStore = defineStore("main", {
-  // 我们先定义一个最基本的 message 数据
-  state: () => ({
-    message: "Hello World",
-    // 通过 as 关键字指定 TS 类型
-    randomMessages: [] as string[],
-    // 通过尖括号指定 TS 类型
-    randomMessages: <string[]>[],
-  }),
-  // ...
+export const useStore = defineStore({
+  id: "main",
+  // Store 选项...
 });
 ```
 
-## 获取和更新 state
+::: tip
+不论是哪种创建形式，都必须为 Store 指定一个唯一 ID
+:::
 
-直接通过 store.message 直接调用 state 里的数据。
-
-```js
-import { defineComponent } from "vue";
-import { useStore } from "@/stores";
-
-export default defineComponent({
-  setup() {
-    // 像 useRouter 那样定义一个变量拿到实例
-    const store = useStore();
-
-    // 直接通过实例来获取数据
-    console.log(store.message);
-
-    // 这种方式你需要把整个 store 给到 template 去渲染数据
-    return {
-      store,
-    };
-  },
-});
-```
-
-在数据更新方面，在 `Pinia` 可以直接通过 Store 实例更新 state （这一点与 Vuex 有明显的不同，更改 Vuex 的 store 中的状态的唯一方法是提交 mutation），所以如果你要更新 message ，只需要像下面这样，就可以更新 message 的值了！
-
-```js
-store.message = "New Message.";
-```
+另外可以看到我把导出的函数名命名为 useStore ，以 use 开头是 Vue 3 对可组合函数的一个命名规范。

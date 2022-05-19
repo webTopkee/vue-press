@@ -54,3 +54,7 @@ export const useStore = defineStore("main", {
 const store = useSiteStore();
 console.log(store.signedMessage("weber")); // weber The message is "hello world".
 ```
+
+## 获取和更新 getter
+
+`getter` 和 state 都属于数据管理，读取和赋值的方法是一样的，请参考上方 获取和更新 state 一节的内容。
