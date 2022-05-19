@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>给 Store 添加 state | weber</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/git.png">
+    <meta name="description" content="前端记录">
+    
+    <link rel="preload" href="/assets/css/0.styles.866b8e8b.css" as="style"><link rel="preload" href="/assets/js/app.a65497b7.js" as="script"><link rel="preload" href="/assets/js/2.f69c149f.js" as="script"><link rel="preload" href="/assets/js/68.94884227.js" as="script"><link rel="prefetch" href="/assets/js/10.45804959.js"><link rel="prefetch" href="/assets/js/11.9939fa9f.js"><link rel="prefetch" href="/assets/js/12.f01ec91f.js"><link rel="prefetch" href="/assets/js/13.bd091576.js"><link rel="prefetch" href="/assets/js/14.4ea7f7a7.js"><link rel="prefetch" href="/assets/js/15.7dc6a7d8.js"><link rel="prefetch" href="/assets/js/16.280d73ee.js"><link rel="prefetch" href="/assets/js/17.af5617d6.js"><link rel="prefetch" href="/assets/js/18.44fdaa99.js"><link rel="prefetch" href="/assets/js/19.523d3c3b.js"><link rel="prefetch" href="/assets/js/20.5d9bb8a3.js"><link rel="prefetch" href="/assets/js/21.0b0bfb4e.js"><link rel="prefetch" href="/assets/js/22.5c7e4468.js"><link rel="prefetch" href="/assets/js/23.bfaaf734.js"><link rel="prefetch" href="/assets/js/24.e040b4cd.js"><link rel="prefetch" href="/assets/js/25.9df70589.js"><link rel="prefetch" href="/assets/js/26.4d5a2c3e.js"><link rel="prefetch" href="/assets/js/27.080c2757.js"><link rel="prefetch" href="/assets/js/28.0ceef08a.js"><link rel="prefetch" href="/assets/js/29.2cb28878.js"><link rel="prefetch" href="/assets/js/3.9635fb3c.js"><link rel="prefetch" href="/assets/js/30.4457f1db.js"><link rel="prefetch" href="/assets/js/31.64844148.js"><link rel="prefetch" href="/assets/js/32.6c341ca6.js"><link rel="prefetch" href="/assets/js/33.e959b5c4.js"><link rel="prefetch" href="/assets/js/34.7638a027.js"><link rel="prefetch" href="/assets/js/35.ca4fe09d.js"><link rel="prefetch" href="/assets/js/36.a5326e1e.js"><link rel="prefetch" href="/assets/js/37.c3231f0d.js"><link rel="prefetch" href="/assets/js/38.932cf5c9.js"><link rel="prefetch" href="/assets/js/39.95e2e9f2.js"><link rel="prefetch" href="/assets/js/4.f1b50a98.js"><link rel="prefetch" href="/assets/js/40.278fa717.js"><link rel="prefetch" href="/assets/js/41.fa6af7da.js"><link rel="prefetch" href="/assets/js/42.507556ee.js"><link rel="prefetch" href="/assets/js/43.5708d5bd.js"><link rel="prefetch" href="/assets/js/44.0538c6fa.js"><link rel="prefetch" href="/assets/js/45.be058661.js"><link rel="prefetch" href="/assets/js/46.b0d02d15.js"><link rel="prefetch" href="/assets/js/47.93a59623.js"><link rel="prefetch" href="/assets/js/48.0a5bc3a3.js"><link rel="prefetch" href="/assets/js/49.7b9387bd.js"><link rel="prefetch" href="/assets/js/5.3bf71e75.js"><link rel="prefetch" href="/assets/js/50.e9ac16a8.js"><link rel="prefetch" href="/assets/js/51.dcb5ba7a.js"><link rel="prefetch" href="/assets/js/52.7a0be691.js"><link rel="prefetch" href="/assets/js/53.1a8090b0.js"><link rel="prefetch" href="/assets/js/54.07bb2e5c.js"><link rel="prefetch" href="/assets/js/55.b6b7ed51.js"><link rel="prefetch" href="/assets/js/56.6bcaf042.js"><link rel="prefetch" href="/assets/js/57.6a8184ca.js"><link rel="prefetch" href="/assets/js/58.029718e9.js"><link rel="prefetch" href="/assets/js/59.9b4ed0eb.js"><link rel="prefetch" href="/assets/js/6.65861b4f.js"><link rel="prefetch" href="/assets/js/60.3138a522.js"><link rel="prefetch" href="/assets/js/61.06633484.js"><link rel="prefetch" href="/assets/js/62.1f929f28.js"><link rel="prefetch" href="/assets/js/63.d752232f.js"><link rel="prefetch" href="/assets/js/64.d7a6f44a.js"><link rel="prefetch" href="/assets/js/65.cf27b54f.js"><link rel="prefetch" href="/assets/js/66.649efb60.js"><link rel="prefetch" href="/assets/js/67.61c482de.js"><link rel="prefetch" href="/assets/js/69.067109ce.js"><link rel="prefetch" href="/assets/js/7.420e0423.js"><link rel="prefetch" href="/assets/js/8.02de4472.js"><link rel="prefetch" href="/assets/js/9.bf6913f7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.866b8e8b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/git.png" alt="weber" class="logo"> <span class="site-name can-hide">weber</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="分类" class="dropdown-title"><span class="title">笔记分类</span> <span class="arrow down"></span></button> <button type="button" aria-label="分类" class="mobile-dropdown-title"><span class="title">笔记分类</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/pages/vuex/" class="nav-link router-link-active">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/pages/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/pages/ts/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/pages/http/" class="nav-link">
+  Http
+</a></li><li class="dropdown-item"><!----> <a href="/pages/php/" class="nav-link">
+  PHP
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端生态" class="dropdown-title"><span class="title">前端生态</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端生态" class="mobile-dropdown-title"><span class="title">前端生态</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://cn.windicss.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Windi CSS
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          ES6
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://wangdoc.com/es6/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ES6-阮一峰
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://es.xiecheng.live" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ECMAScript2015~2020 语法全解析
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://staging-cn.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue3 官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://vue3.chengpeiquan.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue3 入门指南与实战案例
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue 驱动的静态网站生成器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://ts.xcatliu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TypeScript 入门教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://jkchao.github.io/typescript-book-chinese/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  深入理解 TypeScript
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://vvbin.cn/doc-next/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vben Admin
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/webTopkee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="分类" class="dropdown-title"><span class="title">笔记分类</span> <span class="arrow down"></span></button> <button type="button" aria-label="分类" class="mobile-dropdown-title"><span class="title">笔记分类</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/pages/vuex/" class="nav-link router-link-active">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/pages/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/pages/ts/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/pages/http/" class="nav-link">
+  Http
+</a></li><li class="dropdown-item"><!----> <a href="/pages/php/" class="nav-link">
+  PHP
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端生态" class="dropdown-title"><span class="title">前端生态</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端生态" class="mobile-dropdown-title"><span class="title">前端生态</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://cn.windicss.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Windi CSS
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          ES6
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://wangdoc.com/es6/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ES6-阮一峰
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://es.xiecheng.live" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ECMAScript2015~2020 语法全解析
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://staging-cn.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue3 官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://vue3.chengpeiquan.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue3 入门指南与实战案例
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue 驱动的静态网站生成器
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://ts.xcatliu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  TypeScript 入门教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://jkchao.github.io/typescript-book-chinese/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  深入理解 TypeScript
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://vvbin.cn/doc-next/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vben Admin
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/webTopkee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>vuex基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/vuex/pinia.html" class="sidebar-link">关于 Pinia</a></li><li><a href="/pages/vuex/install.html" class="sidebar-link">安装与启用</a></li><li><a href="/pages/vuex/store.html" class="sidebar-link">Store</a></li><li><a href="/pages/vuex/state.html" aria-current="page" class="active sidebar-link">State</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#给-store-添加-state" class="sidebar-link">给 Store 添加 state</a></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#获取和更新-state" class="sidebar-link">获取和更新 state</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#使用-store-实例" class="sidebar-link">使用 store 实例</a></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#使用-computed-api" class="sidebar-link">使用 computed API</a></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#使用-storetorrefs-api" class="sidebar-link">使用 storeTorRefs API</a></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#使用-torefs-api" class="sidebar-link">使用 toRefs API</a></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#使用-toref-api" class="sidebar-link">使用 toRef API</a></li></ul></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#批量更新-state" class="sidebar-link">批量更新 state</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#传入一个对象" class="sidebar-link">传入一个对象</a></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#传入一个方法" class="sidebar-link">传入一个方法</a></li></ul></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#全量更新-state" class="sidebar-link">全量更新 state</a></li><li class="sidebar-sub-header"><a href="/pages/vuex/state.html#重置-state" class="sidebar-link">重置 state</a></li></ul></li><li><a href="/pages/vuex/getters.html" class="sidebar-link">Getters</a></li><li><a href="/pages/vuex/actions.html" class="sidebar-link">Actions</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="给-store-添加-state"><a href="#给-store-添加-state" class="header-anchor">#</a> 给 Store 添加 state</h2> <p><code>state</code> 就相当于 vue 中的 data 数据，提供数据存储的地方。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// src/stores/index.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;pinia&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> useStore <span class="token operator">=</span> <span class="token function">defineStore</span><span class="token punctuation">(</span><span class="token string">&quot;main&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 我们先定义一个最基本的 message 数据</span>
+  <span class="token function-variable function">state</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">arr</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="获取和更新-state"><a href="#获取和更新-state" class="header-anchor">#</a> 获取和更新 state</h2> <h3 id="使用-store-实例"><a href="#使用-store-实例" class="header-anchor">#</a> 使用 store 实例</h3> <p>用法上和 Vuex 很相似，但有一点区别是，数据直接是挂在 store 上的，而不是 store.state 上面！</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@/stores&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 像 useRouter 那样定义一个变量拿到实例</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 直接通过实例来获取数据</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 这种方式你需要把整个 store 给到 template 去渲染数据</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      store<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>在数据更新方面，在 <code>Pinia</code> 可以直接通过 Store 实例更新 state （这一点与 Vuex 有明显的不同，更改 Vuex 的 store 中的状态的唯一方法是提交 mutation），所以如果你要更新 message ，只需要像下面这样，就可以更新 message 的值了！</p> <div class="language-js extra-class"><pre class="language-js"><code>store<span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token string">&quot;New Message.&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="使用-computed-api"><a href="#使用-computed-api" class="header-anchor">#</a> 使用 computed API</h3> <p>现在 state 里已经有我们定义好的数据了，下面这段代码是在 Vue 组件里导入我们的 Store ，并通过计算数据 <code>computed</code> 拿到里面的 <code>message</code> 数据传给 template 使用。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> computed<span class="token punctuation">,</span> defineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@/stores&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 像 useRouter 那样定义一个变量拿到实例</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 通过计算拿到里面的数据</span>
+    <span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;message&quot;</span><span class="token punctuation">,</span> message<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 传给 template 使用</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      message<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>上面例子中通过<code>computed</code>拿到<code>message</code>只是只读，没办法修改，如果要修改可以配置<code>computed</code>中的<code>set</code>方法进入修改。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 其他代码和上一个例子一样，这里省略...</span>
+
+<span class="token comment">// 修改：定义 computed 变量的时候配置 getter 和 setter</span>
+<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// getter 还是返回数据的值</span>
+  <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
+  <span class="token comment">// 配置 setter 来定义赋值后的行为</span>
+  <span class="token function">set</span><span class="token punctuation">(</span>newVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    store<span class="token punctuation">.</span>message <span class="token operator">=</span> newVal<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 此时不再抛出 Write operation failed: computed value is readonly 的警告</span>
+message<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">&quot;New Message.&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// store 上的数据已成功变成了 New Message.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="使用-storetorrefs-api"><a href="#使用-storetorrefs-api" class="header-anchor">#</a> 使用 storeTorRefs API</h3> <p>Pinia 还提供了一个 storeToRefs API 用于把 state 的数据转换为 ref 变量。</p> <p>这是一个专门为 Pinia Stores 设计的 API ，类似于 toRefs ，区别在于，它会忽略掉 Store 上面的方法和非响应性的数据，只返回 state 上的响应性数据。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@/stores&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 记得导入这个 API</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> storeToRefs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;pinia&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 通过 storeToRefs 来拿到响应性的 message</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> message <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">storeToRefs</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;message&quot;</span><span class="token punctuation">,</span> message<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      message<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>通过这个方式拿到的 message 变量是一个 Ref 类型的数据，所以你可以像普通的 ref 变量一样进行读取和赋值。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 直接赋值即可</span>
+message<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">&quot;New Message.&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// store 上的数据已成功变成了 New Message.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="使用-torefs-api"><a href="#使用-torefs-api" class="header-anchor">#</a> 使用 toRefs API</h3> <p>如 使用 storeToRefs API 部分所说，该 API 本身的设计就是类似于 toRefs ，所以你也可以直接用 toRefs 把 state 上的数据转成 ref 变量。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 注意 toRefs 是 vue 的 API ，不是 Pinia</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> toRefs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@/stores&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 跟 storeToRefs 操作都一样，只不过用 Vue 的这个 API 来处理</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> message <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">toRefs</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;message&quot;</span><span class="token punctuation">,</span> message<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      message<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>可以像普通的 ref 变量一样进行读取和赋值。</p> <p>另外，像上面这样，对 store 执行 toRefs 会把 store 上面的 getters 、 actions 也一起提取，如果你只需要提取 state 上的数据，可以这样做：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 只传入 store.$state</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> message <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">toRefs</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>$state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="使用-toref-api"><a href="#使用-toref-api" class="header-anchor">#</a> 使用 toRef API</h3> <p>toRef 是 toRefs 的兄弟 API ，一个是只转换一个字段，一个是转换所有字段，所以它也可以用来转换 state 数据变成 ref 变量。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 注意 toRef 是 vue 的 API ，不是 Pinia</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> toRef <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@/stores&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 遵循 toRef 的用法即可</span>
+    <span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token function">toRef</span><span class="token punctuation">(</span>store<span class="token punctuation">,</span> <span class="token string">&quot;message&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;message&quot;</span><span class="token punctuation">,</span> message<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      message<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="批量更新-state"><a href="#批量更新-state" class="header-anchor">#</a> 批量更新 state</h2> <p>Pinia 也提供了一个 <code>$patch</code> API 用于同时修改多个数据，它接收一个参数：</p> <h3 id="传入一个对象"><a href="#传入一个对象" class="header-anchor">#</a> 传入一个对象</h3> <p>当参数类型为对象时，key 是要修改的 state 数据名称， value 是新的值（支持嵌套传值），用法如下：</p> <div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>$state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//{message: &quot;Hello World&quot;,arr: [1, 2, 3],}</span>
+
+store<span class="token punctuation">.</span><span class="token function">$patch</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;weber&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">arr</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>$state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//{message: &quot;weber&quot;,arr: [4, 5, 6],}</span>
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>使用这个方式时， key 只允许是实例上已有的数据，不可以提交未定义的数据进去。</p> <p>强制提交的话，在 TypeScript 会抛出错误， JavaScript 虽然不会报错，但实际上， Store 实例上面依然不会有这个新增的非法数据。</p></div> <h3 id="传入一个方法"><a href="#传入一个方法" class="header-anchor">#</a> 传入一个方法</h3> <p>当参数类型为函数时，该函数会有一个入参 state ，是当前实例的 state ，等价于 store.$state ，用法如下：</p> <div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>$state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//{message: &quot;Hello World&quot;,arr: [1, 2, 3],}</span>
+
+store<span class="token punctuation">.</span><span class="token function">$patch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  state<span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token string">&quot;weber&quot;</span><span class="token punctuation">;</span>
+  state<span class="token punctuation">.</span>arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>$state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//{message: &quot;weber&quot;,arr: [4, 5, 6],}</span>
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>使用这个方式时，和 传入一个对象 一样只能修改已定义的数据，并且另外需要注意，传进去的函数只能是同步函数，不可以是异步函数！</p></div> <h2 id="全量更新-state"><a href="#全量更新-state" class="header-anchor">#</a> 全量更新 state</h2> <p>从前面多次提到 state 数据可以通过 store.$state 来拿到，而这个属性本身是可以直接赋值的。</p> <div class="language-js extra-class"><pre class="language-js"><code>store<span class="token punctuation">.</span>$state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    message <span class="token operator">=</span> <span class="token string">&quot;weber&quot;</span><span class="token punctuation">;</span>
+    arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>同样的，必须遵循 state 原有的数据和对应的类型。</p> <h2 id="重置-state"><a href="#重置-state" class="header-anchor">#</a> 重置 state</h2> <p>Pinia 提供了一个 $reset API 挂在每个实例上面，用于重置整顿 state 树为初始数据：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 这个 store 是我们上面定义好的实例</span>
+store<span class="token punctuation">.</span><span class="token function">$reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>具体例子：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 修改数据</span>
+store<span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token string">&quot;New Message&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 New Message</span>
+
+<span class="token comment">// 3s 后重置状态</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  store<span class="token punctuation">.</span><span class="token function">$reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出最开始的 Hello World</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/19/2022, 2:27:12 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/pages/vuex/store.html" class="prev">
+        Store
+      </a></span> <span class="next"><a href="/pages/vuex/getters.html">
+        Getters
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a65497b7.js" defer></script><script src="/assets/js/2.f69c149f.js" defer></script><script src="/assets/js/68.94884227.js" defer></script>
+  </body>
+</html>
