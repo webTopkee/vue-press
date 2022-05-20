@@ -175,7 +175,7 @@ module.exports = {
             ["operator.md", "运算符"],
             ["process.md", "流程控制"],
             ["array.md", "数组"],
-            ["fn.md", "函数"],
+            ["function.md", "函数"],
 
             // ["php6.md", "标量类型"],
             // ["php7.md", "复合类型"],
