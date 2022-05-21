@@ -96,68 +96,6 @@ module.exports = {
       { text: "Github", link: "https://github.com/webTopkee" },
     ],
     sidebar: {
-      "/pages/guide/": [
-        // {
-        //   title: "前言",
-        //   collapsable: false, 
-        //   sidebarDepth: 1, 
-        //   children: [
-        //     ["weber.md", "weber"],
-        //   ],
-        // },
-        // {
-        //   title: "前端相关",
-        //   collapsable: false, 
-        //   sidebarDepth: 1, 
-        //   children: [
-        //     ["npm.md", "Npm"],
-        //     ["js.md", "JavaScript"],
-        //     ["es.md", "ES6"],
-        //     ["vuex.md", "Vuex 4.x"],
-        //     ["type.md", "TypeScript"],
-        //   ],
-        // },
-        // {
-        //   title: "网络相关",
-        //   collapsable: false,
-        //   sidebarDepth: 1, 
-        //   children: [
-        //     ["http.md", "Http"],
-        //   ],
-        // },
-        // {
-        //   title: "数据库相关",
-        //   collapsable: false, 
-        //   sidebarDepth: 1, 
-        //   children: [
-        //     // ["git.md", "Git"],
-        //   ],
-        // },
-        // {
-        //   title: "服务器相关",
-        //   collapsable: false, 
-        //   sidebarDepth: 1, 
-        //   children: [
-        //     ["php.md", "PHP"],
-        //   ],
-        // },
-        // {
-        //   title: "项目管理",
-        //   collapsable: false, 
-        //   sidebarDepth: 1, 
-        //   children: [
-        //     ["git.md", "Git"],
-        //   ],
-        // },
-        // {
-        //   title: "其它",
-        //   collapsable: false, 
-        //   sidebarDepth: 1, 
-        //   children: [
-        //     ["parse.md", "设置本地域名解析"],
-        //   ],
-        // },
-      ],
       "/pages/php/":[
         {
           title: "PHP基础",
@@ -186,17 +124,28 @@ module.exports = {
       ],
       "/pages/js/":[
         {
+          title: "ES5基础",
+          collapsable: false, 
+          sidebarDepth: 2, 
+          children: [
+            ["es5/array.md", "数组"],
+            ["es5/object.md", "对象"],
+          ],
+        },
+        {
           title: "ES6基础",
           collapsable: false, 
-          sidebarDepth: 1, 
+          sidebarDepth: 2, 
           children: [
-            ["es.md", "变量声明"],
-            ["es2.md", "循环"],
-            ["es3.md", "作用域"],
-            ["es4.md", "箭头函数"],
-            ["es5.md", "数组遍历"],
-            ["promise.md", "Promise"],
-            ["async.md", "async"],
+            ["es6/array.md", "数组扩展"],
+            ["es6/object.md", "对象扩展"],
+            // ["es6/es.md", "变量声明"],
+            // ["es6/es2.md", "循环"],
+            // ["es6/es3.md", "作用域"],
+            // ["es6/es4.md", "箭头函数"],
+            // ["es6/es5.md", "数组遍历"],
+            // ["es6/promise.md", "Promise"],
+            // ["es6/async.md", "async"],
           ],
         },
       ],
@@ -218,7 +167,7 @@ module.exports = {
         {
           title: "Git",
           collapsable: false, 
-          sidebarDepth: 1, 
+          sidebarDepth: 2, 
           children: [
             ["git.md", "常规操作"],
             // ["git2.md", "修改用户名和邮箱地址"],
@@ -233,7 +182,7 @@ module.exports = {
         {
           title: "http基础",
           collapsable: false, 
-          sidebarDepth: 1, 
+          sidebarDepth: 2, 
           children: [
             ["http.md", "HTTP 请求方式"],
             ["http2.md", "HTTP 返回错误码"],
@@ -244,7 +193,7 @@ module.exports = {
         {
           title: "TypeScript基础",
           collapsable: false, 
-          sidebarDepth: 1, 
+          sidebarDepth: 2, 
           children: [
             ["ts.md", "基本类型"],
             ["ts2.md", "数组"],
