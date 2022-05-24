@@ -55,3 +55,24 @@ fn2.length; // 2
 ```
 
 如果设置了默认值的参数不是尾参数，那么`length`属性也不再计入后面的参数了。
+
+## rest 参数
+
+ES6 引入 `rest` 参数（形式为`...变量名`），用于获取函数的多余参数，这样就不需要使用 arguments 对象了。`rest` 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
+
+```js
+function fn(...value) {
+  console.log(value);
+}
+
+fn(1, 4, { a: 5 }, 8); //[1, 4, {a: 5}, 8]
+```
+
+```js
+function fn(x, ...value) {
+  console.log(x); //1
+  console.log(value); //[4, {a: 5}, 8]
+}
+
+fn(1, 4, { a: 5 }, 8);
+```
