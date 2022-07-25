@@ -114,6 +114,7 @@ module.exports = {
             ["process.md", "流程控制"],
             ["array.md", "数组"],
             ["function.md", "函数"],
+            ["sys-function.md", "系统函数"],
 
             // ["php6.md", "标量类型"],
             // ["php7.md", "复合类型"],
