@@ -140,6 +140,7 @@ module.exports = {
             ["es6/array.md", "数组扩展"],
             ["es6/object.md", "对象扩展"],
             ["es6/function.md", "函数扩展"],
+            ["es6/class.md", "Class"],
             // ["es6/es.md", "变量声明"],
             // ["es6/es2.md", "循环"],
             // ["es6/es3.md", "作用域"],
