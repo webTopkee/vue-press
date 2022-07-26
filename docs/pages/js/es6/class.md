@@ -14,11 +14,11 @@ const p = new Point()
 // es6 Class类
 class Point {
     constructor(x, y) {
-    this.x = x
-    this.y = y
+        this.x = x
+        this.y = y
     }
     color() {
-    return '#fff'
+        return '#fff'
     }
 }
 const p = new Point()
@@ -93,26 +93,26 @@ Class 可以通过extends关键字实现继承，让子类继承父类的属性�
 ```js
 class Point {
     constructor(a, b) {
-    this.a = a
-    this.b = b
+        this.a = a
+        this.b = b
     }
 
     fn() {
-    return '父级原型链方法'
+        return '父级原型链方法'
     }
 
     static fn3() {
-    console.log('父级静态方法')
+        console.log('父级静态方法')
     }
 }
 class ColorPoint extends Point {
     constructor(x, y, c) {
-    super(x, y)
-    this.c = c
+        super(x, y)
+        this.c = c
     }
 
     fn2() {
-    console.log('子级原型链方法')
+        console.log('子级原型链方法')
     }
 }
 
@@ -123,17 +123,37 @@ const c = new ColorPoint(1, 2, 3)
 class Point {
     #p = '私有属性'
     getP() {
-    return this.#p
+        return this.#p
     }
 }
 class ColorPoint extends Point {
     constructor() {
-    super()
-    console.log(this.getP()) // 私有属性
+        super()
+        console.log(this.getP()) // 私有属性
     }
 }
 
 const c = new ColorPoint()
 
 console.log(Object.getPrototypeOf(ColorPoint) === Point) //true
+```
+
+这里需要注意，由于super指向父类的原型对象，所以定义在父类实例上的方法或属性，是无法通过super调用的。
+```js
+class Point {
+    p() {
+        return 2
+    }
+}
+Point.prototype.x = 1
+
+class A extends Point {
+    constructor() {
+        super()
+        console.log(super.p()) // 2
+        console.log(super.x) // 1
+    }
+}
+
+const a = new A()
 ```
