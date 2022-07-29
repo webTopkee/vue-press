@@ -129,8 +129,10 @@ module.exports = {
           collapsable: false, 
           sidebarDepth: 2, 
           children: [
+
             ["es5/array.md", "数组"],
             ["es5/object.md", "对象"],
+            ["es5/try.md", "try"],
           ],
         },
         {
