@@ -14,21 +14,22 @@ module.exports = {
     lastUpdated: "上次更新", // string | boolean
     search: true,
     searchMaxSuggestions: 10,
-    displayAllHeaders:false, //是否展示所有标题
+    displayAllHeaders: false, //是否展示所有标题
     smoothScroll: true,
     nav: [
       { text: "首页", link: "/" },
       {
-          text: '笔记分类',
-          ariaLabel: '分类',
-          items: [
-              { text: 'Git', link: '/pages/git/' },
-              { text: 'Vuex', link: '/pages/vuex/' },
-              { text: 'JavaScript', link: '/pages/js/' },
-              { text: 'TypeScript', link: '/pages/ts/' },
-              { text: 'Http', link: '/pages/http/' },
-              { text: 'PHP', link: '/pages/php/' },
-          ]
+        text: "笔记分类",
+        ariaLabel: "分类",
+        items: [
+          { text: "Git", link: "/pages/git/" },
+          { text: "React", link: "/pages/React/" },
+          { text: "Vuex", link: "/pages/vuex/" },
+          { text: "JavaScript", link: "/pages/js/" },
+          { text: "TypeScript", link: "/pages/ts/" },
+          { text: "Http", link: "/pages/http/" },
+          { text: "PHP", link: "/pages/php/" },
+        ],
       },
       {
         text: "前端生态",
@@ -96,11 +97,11 @@ module.exports = {
       { text: "Github", link: "https://github.com/webTopkee" },
     ],
     sidebar: {
-      "/pages/php/":[
+      "/pages/php/": [
         {
           title: "PHP基础",
-          collapsable: false, 
-          sidebarDepth: 2, 
+          collapsable: false,
+          sidebarDepth: 2,
           children: [
             ["php.md", "语法特点"],
             ["php2.md", "输出语句"],
@@ -123,13 +124,12 @@ module.exports = {
           ],
         },
       ],
-      "/pages/js/":[
+      "/pages/js/": [
         {
           title: "ES5基础",
-          collapsable: false, 
-          sidebarDepth: 2, 
+          collapsable: false,
+          sidebarDepth: 2,
           children: [
-
             ["es5/array.md", "数组"],
             ["es5/object.md", "对象"],
             ["es5/try.md", "try"],
@@ -137,8 +137,8 @@ module.exports = {
         },
         {
           title: "ES6基础",
-          collapsable: false, 
-          sidebarDepth: 2, 
+          collapsable: false,
+          sidebarDepth: 2,
           children: [
             ["es6/array.md", "数组扩展"],
             ["es6/object.md", "对象扩展"],
@@ -154,11 +154,11 @@ module.exports = {
           ],
         },
       ],
-      "/pages/vuex/":[
+      "/pages/vuex/": [
         {
           title: "vuex基础",
-          collapsable: false, 
-          sidebarDepth: 2, 
+          collapsable: false,
+          sidebarDepth: 2,
           children: [
             ["pinia.md", "关于 Pinia"],
             ["install.md", "安装与启用"],
@@ -167,12 +167,13 @@ module.exports = {
             ["getters.md", "Getters"],
             ["actions.md", "Actions"],
           ],
-      }],
-      "/pages/git/":[
+        },
+      ],
+      "/pages/git/": [
         {
           title: "Git",
-          collapsable: false, 
-          sidebarDepth: 2, 
+          collapsable: false,
+          sidebarDepth: 2,
           children: [
             ["git.md", "常规操作"],
             // ["git2.md", "修改用户名和邮箱地址"],
@@ -183,29 +184,41 @@ module.exports = {
           ],
         },
       ],
-      "/pages/http/":[
+      "/pages/http/": [
         {
           title: "http基础",
-          collapsable: false, 
-          sidebarDepth: 2, 
+          collapsable: false,
+          sidebarDepth: 2,
           children: [
             ["http.md", "HTTP 请求方式"],
             ["http2.md", "HTTP 返回错误码"],
           ],
         },
       ],
-      "/pages/ts/":[
+      "/pages/ts/": [
         {
           title: "TypeScript基础",
-          collapsable: false, 
-          sidebarDepth: 2, 
+          collapsable: false,
+          sidebarDepth: 2,
           children: [
             ["ts.md", "基本类型"],
             ["ts2.md", "数组"],
             ["ts3.md", "接口"],
           ],
         },
-      ]
+      ],
+      "/pages/react/": [
+        {
+          title: "React基础",
+          collapsable: false,
+          sidebarDepth: 2,
+          children: [
+            ["react.md", "起步准备"],
+            ["module.md", "单组件编写"],
+            ["communication.md", "组件之间的通信"],
+          ],
+        },
+      ],
     },
   },
 };
