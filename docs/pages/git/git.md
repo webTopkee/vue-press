@@ -21,6 +21,13 @@ $ git remote -v  查看当前仓库
 $ git remote set-url origin <git仓库>
 ```
 
+## 删除远程仓库
+删除项目中不同远程仓库
+```
+$ git remote 查看当前仓库
+$ git remote rm <git仓库名> 移除远程仓库
+```
+
 ## 分支操作
 
 ```
