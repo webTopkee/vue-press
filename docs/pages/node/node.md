@@ -64,3 +64,44 @@ server.listen(80, () => {
   console.log("server running at http://127.0.0.1");
 });
 ```
+
+## 包基础结构
+
+基础包一般包含三个文件
+
+- package.json (包管理配置文件)
+- index.js （包入口文件）
+- README.md （包说明文档）
+
+## package.json
+
+```json
+{
+  "name": "weber",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "包描述",
+  "keywords": ["weber"],
+  "license": "ISC"
+}
+```
+
+## 发布包
+
+- 终端登录 npm 账号
+
+```
+  npm login
+```
+
+- 发布到 npm 上
+
+```
+  npm publish
+```
+
+- 删除已发布的包
+
+```
+ npm unpublish 包名 --force
+```
