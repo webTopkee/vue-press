@@ -73,9 +73,9 @@ server.listen(80, () => {
 - index.js （包入口文件）
 - README.md （包说明文档）
 
-## package.json
 
 ```json
+// package.json
 {
   "name": "weber",
   "version": "1.0.0",
@@ -84,6 +84,36 @@ server.listen(80, () => {
   "keywords": ["weber"],
   "license": "ISC"
 }
+```
+```js
+// index.js
+module.exports = {
+  UpperCase,
+};
+```
+
+## npm查看源和换源 
+```
+npm config get registry  // 查看npm当前镜像源
+
+npm config set registry https://registry.npm.taobao.org/  // 设置npm镜像源为淘宝镜像
+```
+
+## 镜像源地址部分如下
+```
+npm --- https://registry.npmjs.org/
+
+cnpm --- https://r.cnpmjs.org/
+
+taobao --- https://registry.npm.taobao.org/
+
+nj --- https://registry.nodejitsu.com/
+
+rednpm --- https://registry.mirror.cqupt.edu.cn/
+
+npmMirror --- https://skimdb.npmjs.com/registry/
+
+deunpm --- http://registry.enpmjs.org/
 ```
 
 ## 发布包
@@ -97,11 +127,12 @@ server.listen(80, () => {
 - 发布到 npm 上
 
 ```
+  发布前确保镜像源https://registry.npmjs.org/
   npm publish
 ```
 
 - 删除已发布的包
 
 ```
- npm unpublish 包名 --force
+  npm unpublish 包名 --force
 ```
