@@ -73,7 +73,6 @@ server.listen(80, () => {
 - index.js （包入口文件）
 - README.md （包说明文档）
 
-
 ```json
 // package.json
 {
@@ -85,6 +84,7 @@ server.listen(80, () => {
   "license": "ISC"
 }
 ```
+
 ```js
 // index.js
 module.exports = {
@@ -92,7 +92,8 @@ module.exports = {
 };
 ```
 
-## npm查看源和换源 
+## npm 查看源和换源
+
 ```
 npm config get registry  // 查看npm当前镜像源
 
@@ -100,6 +101,7 @@ npm config set registry https://registry.npm.taobao.org/  // 设置npm镜像源�
 ```
 
 ## 镜像源地址部分如下
+
 ```
 npm --- https://registry.npmjs.org/
 
@@ -135,4 +137,19 @@ deunpm --- http://registry.enpmjs.org/
 
 ```
   npm unpublish 包名 --force
+```
+
+## Express 的基本使用
+
+```js
+// 1.导入 express
+const express = require("express");
+
+// 2.创建 web 服务器
+const app = express();
+
+// 3 启动服务器
+app.listen(80, () => {
+  console.log("创建成功！");
+});
 ```
