@@ -153,3 +153,43 @@ app.listen(80, () => {
   console.log("创建成功！");
 });
 ```
+
+## 监听 GET/POST 请求
+
+```js
+app.get("请请求路径",function(req,res)=>{/*处理函数*/});
+app.post("请请求路径",function(req,res)=>{/*处理函数*/});
+```
+
+## res.send
+
+通过 res.send()方法，可以把处理好的内容，发送给客户端
+
+```js
+app.post("/user", (req, res) => {
+  res.send("请求成功");
+});
+```
+
+## 获取 URL 中携带的参数
+
+通过 req.query 对象，可以访问到客户端通过查询字符串的形式，发送到服务器的参数
+
+```js
+app.post("/", (req, res) => {
+  //默认是一个空对象
+  console.log(req.query);
+});
+```
+
+## 获取 URL 中动态参数
+
+通过 req.params 对象，可以访问到 URL 中，通过:匹配到的动态参数
+
+```js
+app.post("/user/:id", (req, res) => {
+  //可以添加多个动态值"/user/:id/:name"
+  //默认是一个空对象
+  console.log(req.params);
+});
+```
