@@ -193,3 +193,29 @@ app.post("/user/:id", (req, res) => {
   console.log(req.params);
 });
 ```
+
+## 托管静态资源
+
+express 提供了一个非常好用的函数，叫做 express.static()，通过它，我们可以非常方便地创建一个静态资源服务器
+
+```js
+//下面代码可以将public目录下的图片、css文件、js文件对外开放访问了
+// http://localhost:3000/index.html
+app.use(express.static("public"));
+```
+
+如果要托管多个静态资源目录，请多次调用`express.static()`函数
+
+```js
+app.use(express.static("public"));
+app.use(express.static("files"));
+```
+
+访问静态资源文件时，express.static()函数会根据目录的添加顺序查找所需的文件。
+
+如果希望在托管的静态资源访问路径之前，挂载路径前缀，则可以使用以下的方式
+
+```js
+// http://localhost:3000/public/index.html
+app.use("/public", express.static("public"));
+```
