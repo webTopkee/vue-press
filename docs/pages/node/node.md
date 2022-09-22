@@ -219,3 +219,52 @@ app.use(express.static("files"));
 // http://localhost:3000/public/index.html
 app.use("/public", express.static("public"));
 ```
+
+## 安装 nodemon
+
+当修改完代码后，nodemon 会自动重启服务器，极大方便了开发和调试
+
+```
+npm install -g nodemon
+```
+
+## 创建路由模块
+
+```js
+// router.js
+// 1.导入express
+const express = require("express");
+// 2.创建路由对象
+const router = express.Router();
+// 3.挂载具体的路由
+router.get("/user/list",(req,res)=>{
+  res.send("get user list.")
+})
+router.post("/user/add",(req.res)=>{
+  res.send("add new user.")
+})
+// 4.向外导出路由对象
+module.exports = reouter
+```
+
+## 导入路由模块
+
+```js
+// 1.导入路由模块
+const router = require("router.js");
+// 2.注册路由模块
+app.use(router);
+```
+
+## 路由模块添加前缀
+
+类似于托管静态资源时，为静态资源统一挂载访问前缀一样，路由模块添加前缀的方法也非常简单
+
+```js
+// 1.导入路由模块
+const router = require("router.js");
+// 2.注册路由模块
+app.use("/api", router);
+```
+
+此时当我们访问路由时，都需要带上`/api`，如http://127.0.0.1/api/...
