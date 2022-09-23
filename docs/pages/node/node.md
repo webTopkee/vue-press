@@ -244,7 +244,7 @@ router.post("/user/add",(req.res)=>{
   res.send("add new user.")
 })
 // 4.向外导出路由对象
-module.exports = reouter
+module.exports = router
 ```
 
 ## 导入路由模块
