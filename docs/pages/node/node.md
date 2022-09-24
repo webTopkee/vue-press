@@ -275,8 +275,40 @@ app.use("/api", router);
 - 中间件会共享 `req` `res`,上面定义的变量或函数可以传递到每个中间件，直至到路由后输出
 
 ```js
-app.use(function(req,res,next){
+app.use(function (req, res, next) {
   // 执行函数
-  next()
+  next();
+});
+```
+
+## 局部中间件
+
+```js
+const mw = (req, res, next) => {
+  next();
+};
+
+app.get("/", mw, (req, res) => {
+  res.send("hello");
+});
+```
+
+引用多个局部中心件引用
+
+```js
+app.get("/",mw,mw2,(req.res)=>{
+  next();
+})
+// 等价
+app.get("/",[mw,mw2],(req.res)=>{
+  next();
 })
 ```
+
+## 中间件注意事项
+
+- 一定要在路由之前注册中间件
+- 客户端发送过来的请求，可以连续调用多个中间件进行处理
+- 执行完中间件的业务代码之后，不要忘记调用 next()函数
+- 为了防止代码逻辑混乱，调用 next()函数后不要再写额外的代码
+- 连续调用多个中间件时，多个中间件之间，共享 req 和 res 对象
