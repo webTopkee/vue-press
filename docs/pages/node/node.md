@@ -312,3 +312,42 @@ app.get("/",[mw,mw2],(req.res)=>{
 - 执行完中间件的业务代码之后，不要忘记调用 next()函数
 - 为了防止代码逻辑混乱，调用 next()函数后不要再写额外的代码
 - 连续调用多个中间件时，多个中间件之间，共享 req 和 res 对象
+
+## 应用级中间件
+
+```js
+// 全局中间件
+app.use((req.res,next)=>{
+  next()
+})
+// 局部中间件
+app.get("/",mw,(req,res)=>{
+  res.send("Home Page.")
+})
+
+```
+
+## 路由级中间件
+
+```js
+const router = express.Router();
+router.use((req, res, next) => {
+  next();
+});
+```
+
+## 错误级中间件
+
+错误级别中间专门用来捕获整个项目的异常错误，从而防止项目异常崩溃问题
+
+```js
+app.get('/',(req,res)=>{
+  throw new Eroor("服务器内部发生了错误！“)
+  res.send("Home Page.")
+})
+
+app.use((err.req,res,next)=>{
+  console.log("发生了错误：" + err.message)
+  res.send("Eroor!" + err.message)
+})
+```
