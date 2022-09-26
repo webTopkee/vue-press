@@ -337,6 +337,7 @@ router.use((req, res, next) => {
 ```
 
 ## 错误级中间件
+
 错误级别中间专门用来捕获整个项目的异常错误，从而防止项目异常崩溃问题
 
 ```js
@@ -350,4 +351,34 @@ app.use((err.req,res,next)=>{
   res.send("Eroor!" + err.message)
 })
 ```
+
 > 错误级的中间件，必须放在路由尾部
+
+## 内置的中间件
+
+自 Express 4.16.0 版本开始，内置了 3 个常用的中间件，极大的提交开发效率
+
+- express.static 托管静态资源的内置中间件
+- express.json 解析 JSON 格式的请求体数据
+- express.urlencode 解析 URL-encoded 格式的请求体数据
+
+```js
+// 配置解析 application/json
+app.use(express.json())
+// 配置解析 application/x-www-form-urlencoded
+app.use(express.urlencoded(extended:false))
+```
+
+## 第三方中间件
+
+- 运行 npm install body-parser 安装中间件
+- 使用 require 导入中间件
+- 调用 app.use()注册并使用中间件
+
+```js
+const parser = require("body-parser");
+app.use(parser.urlencoded({ extended: false }));
+// app.use(express.urlencoded(extended:false))
+```
+
+> Express 内置的 express.urlencoded 中间件，主是基于 body-parser 第三方中间件封装出来的
