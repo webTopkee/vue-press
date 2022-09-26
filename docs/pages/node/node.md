@@ -337,7 +337,6 @@ router.use((req, res, next) => {
 ```
 
 ## 错误级中间件
-
 错误级别中间专门用来捕获整个项目的异常错误，从而防止项目异常崩溃问题
 
 ```js
@@ -351,3 +350,4 @@ app.use((err.req,res,next)=>{
   res.send("Eroor!" + err.message)
 })
 ```
+> 错误级的中间件，必须放在路由尾部
