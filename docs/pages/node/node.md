@@ -366,7 +366,7 @@ app.use((err.req,res,next)=>{
 // 配置解析 application/json
 app.use(express.json())
 // 配置解析 application/x-www-form-urlencoded
-app.use(express.urlencoded(extended:false))
+app.use(express.urlencoded({extended:false}))
 ```
 
 ## 第三方中间件
