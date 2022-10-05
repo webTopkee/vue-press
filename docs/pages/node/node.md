@@ -565,3 +565,102 @@ select count(*) from users where status=0
 select count(*) as totall from users where status=0
 select username as name, password as pwd from users
 ```
+
+## 安装配置 mysql 模块
+
+安装 myqsl
+
+```
+npm install mysql
+```
+
+配置 mysql 模块
+
+```js
+//导入myqsl模块
+const mysql = require("mysql");
+// 建立与MySQL数据库的连接
+const db = mysql.createPool({
+  hoost: "127.0.0.1", //数据库的IP地址
+  user: "root", //登录数据库的账号
+  password: "admin123", //登录数据库的密码
+  database: "my_db_01", //指定要操作哪个数据库
+});
+```
+
+测试 mysql 模块能否正常工作
+
+```js
+db.query("select 1", (err, res) => {
+  if (err) return console.log(err.message);
+  console.log(res);
+});
+```
+
+## 在项目中操作 Mysql
+
+查询表中所有数据
+
+```js
+const sqlStr = "select * from users";
+db.query(sqlStr, (err, res) => {
+  if (err) return console.log(err.message);
+  console.log(res);
+});
+```
+
+增加表中的数据
+
+```js
+const user = { username: "Spider-Man", password: "pcc123" };
+//待执行的SQL语句，其中英文的?表示占位符
+const sqlStr = "insert into users (username, password) values (?,?)";
+
+db.query(sqlStr, [user.username, user.password], (err, res) => {
+  if (err) return console.log(err.message);
+  //如果res.affectedRows === 1 表示插入数据成功
+  if (res.affectedRows === 1) {
+    console.log("插入数据成功");
+  }
+});
+```
+
+简化写法
+
+```js
+const user = { username: "Spider-Man2", password: "pcc123" };
+const sqlStr = "insert into users set ?";
+
+db.query(sqlStr, user, (err, res) => {
+  if (err) return console.log(err.message);
+  if (res.affectedRows === 1) {
+    console.log("插入数据成功");
+  }
+});
+```
+
+更新表中的数据
+
+```js
+const user = { id: 7, username: "abc", password: "123" };
+const sqlStr = "update users set username=?, password=? where id=?";
+db.query(sqlStr, [user.username, user.password, user.id], (err, res) => {
+  if (err) return console.log(err.message);
+  if (res.affectedRows === 1) {
+    console.log("更新成功");
+  }
+});
+```
+
+简化写法
+
+```js
+const user = { id: 7, username: "xiao", password: "6666" };
+const sqlStr = "update users set ? where id=?";
+db.query(sqlStr, [user, user.id], (err, res) => {
+  if (err) return console.log(err.message);
+  if (res.affectedRows === 1) {
+    console.log("更新成功");
+  }
+});
+```
