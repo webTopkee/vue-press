@@ -461,3 +461,107 @@ res.setHeader("Access-Control-Allow-Methods", "*");
 
 简单请求的特点：客户端与服务器之间只会发生一次请求  
 预检请求的特点：客户端与服务器之间会发生两次请求，OPTION 预检请求成功之后，才会发起真正请求
+
+## SQL 语法
+
+查询表所有字段
+
+```
+select * from users
+```
+
+查询表指定字段
+
+```
+select username from users
+```
+
+向表创建一条数据
+
+```
+insert into users (username, password) values ('tony stark2' , 'adsfewd')
+```
+
+更新表指定字段数据
+
+```
+update users set password='88888' where id=6
+```
+
+更新表多个字段数据
+
+```
+update users set username='admin',password='123456' where id=6
+```
+
+删除表中行数据
+
+```
+delete from users where id=4
+```
+
+### SQL 的 WHERE 子句中使用的运算符
+
+| 操作符  | 描述         |
+| ------- | ------------ |
+| =       | 等于         |
+| <> / != | 不等于       |
+| >       | 大于         |
+| <       | 小于         |
+| >=      | 大于等于     |
+| <=      | 小于等于     |
+| BETWEEN | 在某个范围内 |
+| LIKE    | 搜索某种模式 |
+
+通过 where 子句来限定 select 的查询条件
+
+```
+select * from users where id>2
+select * from users where username='web'
+```
+
+## SQL 的 AND 和 OR 运算符
+
+```
+// 条件必须同时满足
+select * from users where username='web' and status=0
+// 条件只需要满足一条
+select * from users where username='web' or status=1
+```
+
+## SQL 的 ORDER BY 排序
+
+对表中的数据，按照 status 字段进行升序排序
+
+```
+select * from users order by status
+// 等价于
+select * from users order by status asc
+```
+
+对表中的数据，按照 id 字段进行降序排序
+
+```
+select * from users order by id desc
+```
+
+多重排序
+
+```
+select * from users order by status desc, username asc
+```
+
+## SQL 的 COUNT(\*) 函数
+
+查询表中某个字段的总数据条数
+
+```
+select count(*) from users where status=0
+```
+
+使用 AS 关键字给列起别名
+
+```
+select count(*) as totall from users where status=0
+select username as name, password as pwd from users
+```
